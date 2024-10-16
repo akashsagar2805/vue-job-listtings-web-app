@@ -21,7 +21,7 @@ const state = reactive({
 
 onMounted(async () => {
   try {
-    const response = await axios.get('http://localhost:5001/jobs');
+    const response = await axios.get('/api/jobs');
     // Simulate a 2-second delay
     await new Promise((resolve) => setTimeout(resolve, 2000));
     state.jobs = response.data;
@@ -59,7 +59,7 @@ onMounted(async () => {
       </div>
     </section>
   
-    <section class="m-auto max-w-lg my-10 px-6">
+    <section v-if="showButton" class="m-auto max-w-lg my-10 px-6">
       <RouterLink
         to="/jobs"
         class="block bg-black text-white text-center py-4 px-6 rounded-xl hover:bg-gray-700"

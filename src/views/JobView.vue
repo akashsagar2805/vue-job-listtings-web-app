@@ -17,7 +17,7 @@ const state = reactive({
 
 onMounted(async () => {
     try {
-        const response = await axios.get(`http://localhost:5001/jobs/${jobId}`);
+        const response = await axios.get(`/api/jobs/${jobId}`);
         // Simulate a 2-second delay
         await new Promise((resolve) => setTimeout(resolve, 2000));
         state.job = response.data;
